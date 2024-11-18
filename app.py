@@ -42,3 +42,7 @@ with output_placeholder.container():
         st.write(st.session_state['status_message'])
     if st.session_state['output_audio']:
         st.audio(st.session_state['output_audio'], format="audio/mp3", autoplay=True)
+        with open(st.session_state['output_audio'], "rb") as f:
+            st.download_button(label="Download Audio", data=f, file_name="output.mp3", mime="audio/mp3")
+
+st.caption("Made with ❤️ by [damarss](https://github.com/damarss/simple-tts)")
