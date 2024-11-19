@@ -15,11 +15,14 @@ if "status_message" not in st.session_state:
 
 def convert():
     try:
+        st.session_state['status_message'] = None
+        st.session_state['output_audio'] = None
         text = st.session_state['text_input']
         lang = st.session_state['lang_input']
 
         if not text.strip():
-            st.session_state['status message'] = "Please enter some text! 🙏"
+            st.session_state['status_message'] = "Please enter some text! 🙏"
+            return
 
         with output_placeholder.container():
             with st.spinner("Converting... 🔄"):
